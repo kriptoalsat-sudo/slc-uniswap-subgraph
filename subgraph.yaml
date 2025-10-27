@@ -1,0 +1,31 @@
+specVersion: 0.0.5
+schema:
+  file: ./schema.graphql
+
+dataSources:
+  - kind: ethereum/contract
+    name: SLCUSDT
+    network: mainnet
+    source:
+      address: "0x4d05a23a579302897b0ac1824be5ad8f2af8202d"
+      abi: UniswapV3Pool
+      startBlock: 19000000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Swap
+        - Mint
+        - Burn
+      abis:
+        - name: UniswapV3Pool
+          file: ./abis/UniswapV3Pool.json
+      eventHandlers:
+        - event: Swap(indexed address,indexed address,int256,int256,uint160,uint128,int24)
+          handler: handleSwap
+        - event: Mint(indexed address,indexed address,int24,int24,uint128,uint256,uint256)
+          handler: handleMint
+        - event: Burn(indexed address,int24,int24,uint128,uint256,uint256)
+          handler: handleBurn
+      file: ./src/mapping.ts
