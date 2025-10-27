@@ -1,7 +1,4 @@
-specVersion: 0.0.4
-description: >
-  Solucan Coin (SLC) - Uniswap V3 Liquidity Pool Tracker (SLC/USDT pair)
-repository: https://github.com/kriptoalsat-sudo/slc-uniswap-subgraph
+specVersion: 0.0.5
 schema:
   file: ./schema.graphql
 
@@ -12,7 +9,7 @@ dataSources:
     source:
       address: "0x4d05a23a579302897b0ac1824be5ad8f2af8202d"
       abi: UniswapV3Pool
-      startBlock: 0
+      startBlock: 21450000  # (veya senin havuzunun oluşturulduğu blok)
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.7
