@@ -4,30 +4,33 @@ type Swap @entity {
   recipient: Bytes!
   amount0: BigInt!
   amount1: BigInt!
-  sqrtPriceX96: BigInt!
-  liquidity: BigInt!
   tick: Int!
+  blockNumber: BigInt!
   timestamp: BigInt!
 }
 
 type Mint @entity {
   id: ID!
   owner: Bytes!
-  tickLower: Int!
-  tickUpper: Int!
+  sender: Bytes!
   amount: BigInt!
   amount0: BigInt!
   amount1: BigInt!
+  tickLower: Int!
+  tickUpper: Int!
+  blockNumber: BigInt!
   timestamp: BigInt!
 }
 
 type Burn @entity {
   id: ID!
   owner: Bytes!
-  tickLower: Int!
-  tickUpper: Int!
+  sender: Bytes!
   amount: BigInt!
   amount0: BigInt!
   amount1: BigInt!
+  tickLower: Int!
+  tickUpper: Int!
+  blockNumber: BigInt!
   timestamp: BigInt!
 }
